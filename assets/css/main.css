@@ -259,6 +259,12 @@ section:nth-child(even) {
   margin: 0;
 }
 
+/* Employer and dates: px, not rem, because Skeleton sets the root to 62.5% */
+.user-projects .meta {
+  font-size: 14px;
+  color: var(--gray);
+}
+
 .user-projects p strong {
   color: var(--dark);
   font-weight: 600;
