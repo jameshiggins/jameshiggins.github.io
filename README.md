@@ -1,74 +1,52 @@
-# Particle Jekyll Theme
+# jameshiggins.ca
 
-![](./particle.jpg)
+Personal site and online resume for James Higgins, Technical Project Manager
+and Full-Stack Developer in Vancouver, BC.
 
-This is a simple and minimalist template for Jekyll designed for developers that want to show of their portfolio.
+Live at <https://jameshiggins.ca>, served by GitHub Pages from the `master`
+branch of this repo.
 
-The Theme features:
+## What is here
 
-- Gulp
-- SASS
-- Sweet Scroll
-- Particle.js
-- BrowserSync
-- Font Awesome and Devicon icons
-- Google Analytics
-- Info Customization
+The site is a single static page with no build step.
 
-## Basic Setup
+| Path | Purpose |
+| --- | --- |
+| `index.html` | All page content: hero, selected work, experience, skills, education, contact. |
+| `assets/css/main.css` | Hand-written CSS with custom properties, including print styles. |
+| `assets/js/main.js` | Starts the hero particle background. Skipped when the visitor prefers reduced motion. |
+| `assets/img/` | Share image and icons. |
+| `robots.txt`, `sitemap.xml`, `site.webmanifest` | Crawler and browser metadata. |
+| `CNAME` | Custom domain for GitHub Pages. |
 
-1. [Install Jekyll](http://jekyllrb.com)
-2. Fork the [Particle Theme](https://github.com/nrandecker/particle/fork)
-3. Clone the repo you just forked.
-4. Edit `_config.yml` to personalize your site.
+The only third-party runtime dependency is `particles.js` 2.0.0, pinned by
+version on the jsDelivr CDN. Fonts come from Google Fonts.
 
-## Site and User Settings
+## Editing
 
-You have to fill some informations on `_config.yml` to customize your site.
+Edit `index.html` directly and open it in a browser. There is nothing to
+compile. Push to `master` and GitHub Pages publishes it within a few minutes.
+
+To check the page locally with a server, any static server works, for example:
 
 ```
-# Site settings
-description: A blog about lorem ipsum dolor sit amet
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://localhost:3000" # the base hostname & protocol for your site
-
-# User settings
-username: Lorem Ipsum
-user_description: Anon Developer at Lorem Ipsum Dolor
-user_title: Anon Developer
-email: anon@anon.com
-twitter_username: lorem_ipsum
-github_username:  lorem_ipsum
-gplus_username:  lorem_ipsum
+npx serve .
 ```
 
-**Don't forget to change your url before you deploy your site!**
+## Resume PDF
 
-## Color and Particle Customization
-- Color Customization
-  - Edit the sass variables
-- Particle Customization
-  - Edit the json data in particle function in app.js
-  - Refer to [Particle.js](https://github.com/VincentGarreau/particles.js/) for help
+Print the page from a browser to get a resume-style PDF. The print stylesheet
+hides the hero background, navigation and buttons and prints link URLs after
+link text.
 
-## Running the blog in local
+## Planned
 
-In order to compile the assets and run Jekyll on local you need to follow those steps:
-
-- Install [NodeJS](https://nodejs.org/)
-- Run `npm install`
-- Run `gulp`
-
-## Questions
-
-Having any issues file a [GitHub Issue](https://github.com/nrandecker/particle/issues/new).
+Move the resume content into a `resume.json` file in the
+[JSON Resume](https://jsonresume.org/schema/) format and render the page from
+it, so the site, the PDF and the source of truth cannot drift apart.
 
 ## License
 
-This theme is free and open source software, distributed under the The MIT License. So feel free to use this Jekyll theme anyway you want.
-
-## Credits
-
-This theme was partially designed with the inspiration from these fine folks
-- [Willian Justen](https://github.com/willianjusten/will-jekyll-template)
-- [Vincent Garreau](https://github.com/VincentGarreau/particles.js/)
+MIT. See `LICENSE.txt`. The original layout started from the
+[Particle](https://github.com/nrandecker/particle) Jekyll theme, which has
+since been replaced with hand-written markup and CSS.

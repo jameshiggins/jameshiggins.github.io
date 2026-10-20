@@ -1,0 +1,13 @@
+{
+  "name": "James Higgins",
+  "short_name": "James Higgins",
+  "description": "Technical Project Manager and Full-Stack Developer in Vancouver, BC.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#c1272d",
+  "theme_color": "#c1272d",
+  "icons": [
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/assets/img/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

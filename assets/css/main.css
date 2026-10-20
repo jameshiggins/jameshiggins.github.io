@@ -43,9 +43,7 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; border-r
   position: relative;
   display: grid;
   place-items: center;
-  min-height: 78vh;
-  min-height: 78svh;
-  padding: 64px 20px 48px;
+  padding: 72px 20px 56px;
   background: var(--red);
   color: var(--white);
   text-align: center;
@@ -73,9 +71,23 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; border-r
 }
 
 .site-proof {
-  margin-top: 12px;
+  margin: 16px auto 0;
+  max-width: 560px;
   font-size: 15px;
+  line-height: 1.6;
   color: rgba(255, 255, 255, 0.92);
+}
+
+.site-availability {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 .hero-actions {
@@ -187,6 +199,52 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; border-r
   line-height: 1.75;
 }
 
+/* ─── Selected work ──────────────────────────────────────────── */
+.work {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .work { grid-template-columns: repeat(3, 1fr); }
+}
+
+.work-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 20px;
+}
+
+.work-card h3 { font-size: 18px; font-weight: 700; }
+.work-card h3 a { color: var(--dark); text-decoration-color: var(--red); text-underline-offset: 3px; }
+.work-card p { font-size: 15px; line-height: 1.65; color: var(--gray); }
+
+.work-client {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+.work-card .work-role {
+  margin-top: auto;
+  padding-top: 6px;
+  font-size: 13px;
+  color: #6b6b6b;
+}
+
+@media (hover: hover) {
+  .work-card h3 a:hover { color: var(--red); }
+}
+
 /* ─── Experience ─────────────────────────────────────────────── */
 .timeline {
   list-style: none;
@@ -281,7 +339,7 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; border-r
 }
 
 @media (min-width: 768px) {
-  .skills { grid-template-columns: repeat(3, 1fr); }
+  .skills { grid-template-columns: repeat(2, 1fr); }
 }
 
 .skill-group h3 {
@@ -292,6 +350,17 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; border-r
 }
 
 .skill-group .tags { margin-top: 14px; }
+
+.tools-line {
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  font-size: 14px;
+  line-height: 1.7;
+  color: #6b6b6b;
+}
+
+.tools-line strong { color: var(--gray); font-weight: 600; }
 
 /* ─── Education ──────────────────────────────────────────────── */
 .education {
@@ -327,6 +396,12 @@ abbr[title] { text-decoration: none; }
   margin-top: 28px;
 }
 
+.contact-note {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #6b6b6b;
+}
+
 /* ─── Footer ─────────────────────────────────────────────────── */
 .footer {
   background: var(--dark);
@@ -342,4 +417,70 @@ abbr[title] { text-decoration: none; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .btn { transition: none; }
+}
+
+/* ─── Print: the page as a resume ─────────────────────────────── */
+@media print {
+  @page { margin: 16mm; }
+
+  html { scroll-behavior: auto; }
+  body { font-size: 11pt; color: #000; background: #fff; }
+
+  #particles-js,
+  .hero-actions,
+  .hero-nav,
+  .contact-actions,
+  .contact-note,
+  .footer { display: none !important; }
+
+  .hero {
+    padding: 0 0 12pt;
+    background: none;
+    color: #000;
+    text-align: left;
+    border-bottom: 2pt solid #c1272d;
+  }
+
+  .hero-inner { max-width: none; }
+  .site-title { font-size: 26pt; }
+  .site-description { font-size: 11pt; margin-top: 4pt; letter-spacing: 0.08em; }
+  .site-proof, .site-availability { color: #333; margin: 6pt 0 0; max-width: none; }
+  .site-availability { display: block; padding: 0; border: 0; background: none; font-size: 10pt; }
+
+  /* Print contact details that are otherwise only in buttons */
+  .site-proof::after {
+    content: " sayhi@jameshiggins.ca · 604-741-3993 · github.com/jameshiggins";
+    display: block;
+    margin-top: 4pt;
+    font-weight: 600;
+  }
+
+  .section { padding: 14pt 0; break-inside: auto; }
+  .section-alt { background: none; }
+  .container { max-width: none; padding: 0; }
+  .section-title { font-size: 14pt; margin-bottom: 10pt; }
+  .section-title::after { display: none; }
+  .lead-heading { font-size: 13pt; }
+  .intro, .points li, .work-card p, .tools-line { color: #222; font-size: 10.5pt; }
+
+  .work, .timeline, .education, .skills { display: block; }
+  .work-card, .job, .education li { border: 0; padding: 0 0 10pt; break-inside: avoid; }
+  .work-card { page-break-inside: avoid; }
+  .work-card h3 a, .meta .org { color: #000; text-decoration: none; }
+  .work-card h3 a::after { content: " (" attr(href) ")"; font-weight: 400; font-size: 9pt; color: #555; }
+  .meta { font-size: 10pt; margin-top: 2pt; }
+  .points { margin-top: 6pt; gap: 3pt; }
+  .points li::before { background: #000; }
+
+  .tags { gap: 0; margin-top: 4pt; display: block; font-size: 9pt; color: #555; }
+  .tags li { display: inline; padding: 0; border: 0; background: none; font-size: 9pt; color: #555; }
+  .tags li:not(:last-child)::after { content: ", "; }
+  .tags[aria-label="Tools"]::before { content: "Tools: "; font-weight: 600; }
+
+  .skill-group { margin-bottom: 8pt; }
+  .skill-group h3 { color: #000; font-size: 10pt; }
+  .tools-line { margin-top: 6pt; padding-top: 0; border: 0; }
+
+  .contact { text-align: left; }
+  .contact .intro::after { content: " sayhi@jameshiggins.ca · 604-741-3993"; font-weight: 600; }
 }
