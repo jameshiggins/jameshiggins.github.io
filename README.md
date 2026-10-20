@@ -35,9 +35,14 @@ npx serve .
 
 ## Resume PDF
 
-Print the page from a browser to get a resume-style PDF. The print stylesheet
-hides the hero background, navigation and buttons and prints link URLs after
-link text.
+The site links to `assets/James-Higgins-Resume.pdf`. To replace it, overwrite
+that file with the new PDF and keep the same name so the links keep working.
+
+The print stylesheet in `main.css` can also produce a PDF from the page:
+
+```
+chrome --headless=new --no-pdf-header-footer --print-to-pdf=assets/James-Higgins-Resume.pdf http://localhost:8000/
+```
 
 ## Planned
 

@@ -398,12 +398,6 @@ abbr[title] { text-decoration: none; }
   margin-top: 28px;
 }
 
-.contact-note {
-  margin-top: 20px;
-  font-size: 14px;
-  color: #6b6b6b;
-}
-
 /* ─── Footer ─────────────────────────────────────────────────── */
 .footer {
   background: var(--dark);
@@ -421,7 +415,7 @@ abbr[title] { text-decoration: none; }
   .btn { transition: none; }
 }
 
-/* ─── Print: the page as a resume ─────────────────────────────── */
+/* ─── Print: used to generate the resume PDF ──────────────────── */
 @media print {
   @page { margin: 16mm; }
 
@@ -432,7 +426,7 @@ abbr[title] { text-decoration: none; }
   .hero-actions,
   .hero-nav,
   .contact-actions,
-  .contact-note,
+  .contact,
   .footer { display: none !important; }
 
   .hero {
@@ -483,6 +477,4 @@ abbr[title] { text-decoration: none; }
   .skill-group h3 { color: #000; font-size: 10pt; }
   .tools-line { margin-top: 6pt; padding-top: 0; border: 0; }
 
-  .contact { text-align: left; }
-  .contact .intro::after { content: " higginsjamesallen@gmail.com · 604-741-3993"; font-weight: 600; }
 }
